@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Timetable - PCCOE</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: url('PCCOE.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+      padding: 40px 20px;
+      color: #000;
+      backdrop-filter: blur(2px);
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .header img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .header h2 {
+      margin: 10px 0 5px;
+      font-size: 26px;
+    }
+
+    .header h3 {
+      margin: 5px 0;
+      font-weight: normal;
+      font-size: 20px;
+      color: #444;
+    }
+
+    .header h4 {
+      margin: 10px 0 30px;
+      font-size: 18px;
+      color: #666;
+      font-weight: normal;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 15px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    @media (min-width: 600px) {
+      .button-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        flex: 1 1 40%;
+        max-width: 45%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="pccoe_logo.png" alt="PCCOE Logo">
+      <h2>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h2>
+      <h3>Smart Timetable Portal</h3>
+      <h4>FY - BTech</h4>
+    </div>
+
+    <div class="button-container">
+      <button class="btn" onclick="location.href='timetable_l.html'">L - Division</button>
+      <button class="btn" onclick="location.href='timetable_m.html'">M - Division</button>
+      <button class="btn" onclick="location.href='timetable_j.html'">J - Division</button>
+      <button class="btn" onclick="location.href='timetable_k.html'">K - Division</button>
+    </div>
+  </div>
+</body>
+</html>

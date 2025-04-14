@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pointer 9+ Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 700px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    input[type="number"] {
+      width: 70px;
+      padding: 5px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Required SA Marks for 9+ Pointer</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>FA1 (10)</th>
+          <th>FA2 (20)</th>
+          <th>SA Max</th>
+          <th>Required SA</th>
+        </tr>
+      </thead>
+      <tbody id="subject-rows">
+        <tr data-subject="MC" data-sa-max="30">
+          <td>MC</td>
+          <td><input type="number" max="10" /></td>
+          <td><input type="number" max="20" /></td>
+          <td>30</td>
+          <td class="result-cell"></td>
+        </tr>
+        <tr data-subject="DM" data-sa-max="30">
+          <td>DM</td>
+          <td><input type="number" max="10" /></td>
+          <td><input type="number" max="20" /></td>
+          <td>30</td>
+          <td class="result-cell"></td>
+        </tr>
+        <tr data-subject="Physics" data-sa-max="30">
+          <td>Physics</td>
+          <td><input type="number" max="10" /></td>
+          <td><input type="number" max="20" /></td>
+          <td>30</td>
+          <td class="result-cell"></td>
+        </tr>
+        <tr data-subject="OOP" data-sa-max="60">
+          <td>OOP</td>
+          <td><input type="number" max="10" /></td>
+          <td><input type="number" max="20" /></td>
+          <td>60</td>
+          <td class="result-cell"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button onclick="calculateSA()">Calculate Required SA</button>
+    <div class="result" id="overall-result"></div>
+  </div>
+
+  <script>
+    function calculateSA() {
+      const rows = document.querySelectorAll("#subject-rows tr");
+      let overallOK = true;
+
+      rows.forEach(row => {
+        const fa1 = parseFloat(row.cells[1].querySelector("input").value);
+        const fa2 = parseFloat(row.cells[2].querySelector("input").value);
+        const saMax = parseFloat(row.dataset.saMax);
+        const resultCell = row.querySelector(".result-cell");
+
+        if (isNaN(fa1) || isNaN(fa2)) {
+          resultCell.textContent = "⚠️ Enter all marks";
+          resultCell.style.color = "red";
+          overallOK = false;
+          return;
+        }
+
+        // Convert FA1/FA2 to percentage
+        const fa1Percent = (fa1 / 10) * 100;
+        const fa2Percent = (fa2 / 20) * 100;
+
+        // Weighted total = FA1 10%, FA2 10%, SA 80%
+        const requiredSA = (90 - (fa1Percent * 0.1 + fa2Percent * 0.1)) / 0.8;
+        const requiredSAMarks = (requiredSA / 100) * saMax;
+
+        if (requiredSAMarks > saMax) {
+          resultCell.textContent = `Need ${requiredSAMarks.toFixed(2)} ❌ (Not possible)`;
+          resultCell.style.color = "crimson";
+          overallOK = false;
+        } else if (requiredSAMarks <= 0) {
+          resultCell.textContent = `Already 9+ ✅`;
+          resultCell.style.color = "green";
+        } else {
+          resultCell.textContent = `${requiredSAMarks.toFixed(2)} / ${saMax}`;
+          resultCell.style.color = "darkgreen";
+        }
+      });
+
+      const overallResult = document.getElementById("overall-result");
+      if (overallOK) {
+        overallResult.textContent = "✅ You're on track for a 9+ pointer if you meet these SA goals!";
+        overallResult.style.color = "green";
+      } else {
+        overallResult.textContent = "⚠️ Some SA requirements exceed max marks or are missing.";
+        overallResult.style.color = "crimson";
+      }
+    }
+  </script>
+</body>
+</html>

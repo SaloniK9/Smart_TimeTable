@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faculty Portal - Extra Class Updation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('PCCOE.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(2px);
+      margin: 0;
+      padding: 20px;
+      color: #000;
+    }
+    .container {
+      display: none;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      max-width: 1100px;
+      margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+    .header {
+      text-align: center;
+    }
+    .header img {
+      height: 80px;
+    }
+    h2, h3 {
+      margin: 5px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #access-denied {
+      text-align: center;
+      color: red;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="faculty-container">
+  <div class="header">
+    <img src="pccoe_logo.png" alt="PCCOE Logo">
+    <h2>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h2>
+    <h3>Faculty Extra Class Updation Portal</h3>
+    <h4>FY - BTech</h4>
+  </div>
+
+  <form id="extraClassForm">
+    <table>
+      <thead>
+        <tr>
+          <th>Time Slot</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4:00 - 5:00 PM</td>
+          <td><input type="text" name="0-0" placeholder="Enter subject"/></td>
+          <td><input type="text" name="0-1"/></td>
+          <td><input type="text" name="0-2"/></td>
+          <td><input type="text" name="0-3"/></td>
+          <td><input type="text" name="0-4"/></td>
+          <td><input type="text" name="0-5"/></td>
+        </tr>
+        <tr>
+          <td>5:00 - 6:00 PM</td>
+          <td><input type="text" name="1-0"/></td>
+          <td><input type="text" name="1-1"/></td>
+          <td><input type="text" name="1-2"/></td>
+          <td><input type="text" name="1-3"/></td>
+          <td><input type="text" name="1-4"/></td>
+          <td><input type="text" name="1-5"/></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="submit">Update Extra Classes</button>
+  </form>
+</div>
+
+<p id="access-denied">Access Denied. Please reload and try again.</p>
+
+<script>
+  const correctPassword = "pccoe@faculty"; // Change this as needed
+  const container = document.getElementById('faculty-container');
+  const deniedMsg = document.getElementById('access-denied');
+
+  window.onload = () => {
+    const password = prompt("Enter faculty password:");
+    if (password === correctPassword) {
+      container.style.display = "block";
+      loadForm();
+    } else {
+      deniedMsg.style.display = "block";
+    }
+  };
+
+  function loadForm() {
+    const form = document.getElementById('extraClassForm');
+    const inputs = form.querySelectorAll('input');
+    inputs.forEach((input, index) => {
+      const key = `extra-${index}`;
+      const saved = localStorage.getItem(key);
+      if (saved) input.value = saved;
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      inputs.forEach((input, index) => {
+        const value = input.value.trim();
+        if (value !== '') {
+          localStorage.setItem(`extra-${index}`, value);
+          localStorage.setItem(`extra-${index}-time`, Date.now());
+        } else {
+          localStorage.removeItem(`extra-${index}`);
+          localStorage.removeItem(`extra-${index}-time`);
+        }
+      });
+      alert("Extra classes updated successfully!");
+    });
+  }
+</script>
+
+</body>
+</html>

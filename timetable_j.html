@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable - PCCOE</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: url('PCCOE.jpeg') no-repeat center center fixed;
+            color: rgb(18, 18, 18);
+            background-size: cover;
+            padding: 40px 20px;
+            backdrop-filter: blur(1px);
+        }
+        .container {
+           
+            background: rgba(251, 249, 249, 0.95);
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 100px; 
+            height: auto;
+        }
+        table {
+            width: 100%;
+            margin: auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        td {
+            cursor: pointer;
+            background-color: #f2f2f2;
+        }
+        .print-btn {
+      display: block;
+      margin: 0 auto 30px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .print-btn:hover {
+      background: #1a252f;
+    }
+    @media print {
+      .print-btn {
+        display: none;
+      }
+    }
+    #extra-class-log {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e7f5e6;
+    border-left: 5px solid #2c7a33;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #1d4121;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+#extra-class-log div {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    position: relative;
+}
+#extra-class-log div::before {
+    content: "📌";
+    position: absolute;
+    left: -20px;
+}
+.log-box {
+    display: none;
+    background-color: #e3f2fd;
+    border-left: 6px solid #2196f3;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: left;
+    border-radius: 8px;
+    color: #0d47a1;
+}
+.log-box div {
+    margin-bottom: 8px;
+}
+.updated-cell {
+    background-color: #ffcccc !important;  /* Light red background */
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+
+
+
+
+            <img src="pccoe_logo.png" alt="PCCOE Logo">
+            <h2>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h2>
+            <h3>J-Division Timetable</h3>
+        </div>
+        <!-- ... your full HTML structure stays the same -->
+
+<!-- Just replace the table part below -->
+
+<table>
+  <tr>
+    <th>Days/Time</th>
+    <th>9:00 - 10:00 AM</th>
+    <th>10:00 - 11:00 AM</th>
+    <th>11:00 - 1:00 PM</th>
+    <th>1:00 - 2:00 PM</th>
+    <th>2:00 - 3:00 PM</th>
+    <th>3:00 - 4:00 PM</th>
+    <th>4:00 - 5:00 PM</th>
+  </tr>
+
+  <tr>
+    <td>Monday</td>
+    <td contenteditable="true" colspan="2">PHY-1*/LS-2*
+        [MRP/MSP]
+        [6417L/6502CR]</td>
+    
+    <td contenteditable="true"> OOP-1/CPPS-2/MC-3
+        [CC/TK/MSP]
+        [90001L/90002L/6503L]</td>
+    <td>Lunch Break</td>
+    <td contenteditable="true">
+        PHY
+        [DAA]
+        [6510CR]</td>
+    <td contenteditable="true">MC
+        [MSP]
+        [6510CR]</td>
+    <td contenteditable="true"> IKS
+        [SAP]
+        [6510CR]</td>
+  </tr>
+
+  <tr>
+    <td>Tuesday</td>
+    <td contenteditable="true"> DM
+        [TK]
+        [6509CR]</td>
+    <td contenteditable="true">OOP
+        [CC]
+        [6509CR]</td>
+    <td contenteditable="true">OOP-2/CPPS-3/MC-1
+        [CC/TK/MSP]
+        [90001L/90002L/6505L]</td>
+    <td>Lunch Break</td>
+    <td contenteditable="true" colspan="2">LS-1*/LS-2*
+        [GZ/MSP]
+        [6402CR/6502CR]</td>
+    
+    <td contenteditable="true"></td>
+  </tr>
+
+  <tr>
+    <td>Wednesday</td>
+    <td contenteditable="true"> DM
+        [TK]
+        [6515CR]</td>
+    <td contenteditable="true"> IKS
+        [SAP]
+        [6515CR]</td>
+
+    <td contenteditable="true"> OOP-1/CPPS-2/PHY-3
+        [CC/TK/DAA]
+        [6221L/6222L/6418L]</td>
+    <td>Lunch Break</td>
+    <td contenteditable="true"> MC
+        [MSP]
+        [6509CR]<td>
+    <td contenteditable="true"></td>
+
+  </tr>
+
+  <tr>
+    <td>Thursday</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true">OOP-2/CPPS-3/PHY-1
+        [CC/TK/DAA]
+        [90001L/90002L/6417L]</td>
+    <td>Lunch Break</td>
+    <td contenteditable="true"> OOP
+        [CC]
+        [6515CR]</td>
+    <td contenteditable="true" colspan="2">OOP-3/CPPS-1/PHY-2
+        [MANNA/TK/DAA]
+        [6118L/6115L/6417L]</td>
+    
+  </tr>
+
+  <tr>
+    <td>Friday</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"> PHY
+        [DAA]
+        [6401CR]</td>
+    <td contenteditable="true">OOP-3/CPPS-1/MC-2
+        [MANNA/TK/MSP]
+        [90001L/90002L/5309L]</td>
+    <td>Lunch Break</td>
+    <td contenteditable="true"> OOP
+        [CC]
+        [6401CR]</td>
+    <td contenteditable="true" colspan="2">PHY-2*/LS-1*
+        [DAA/GZ]
+        [6417L/6515CR]</td>
+  </tr>
+
+  <tr>
+    <td>Saturday</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td>Lunch Break</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+</table>
+
+
+        <button class="print-btn" onclick="window.print()">Print Schedule</button>
+        <button id="edit-btn" class="print-btn">Update Extra Classes</button>
+        <button id="lock-btn" class="print-btn" style="display: none;">Confirm & Lock Edits</button>
+        
+        <a href="index.html" style="text-decoration: none; outline: none;">
+            <button class="print-btn" style="margin-top: 10px; background-color:#2c3e50;">Back to Index</button>
+          </a>
+    
+          
+    </div>
+
+    <script>
+        // Function to add line breaks before each opening [
+        function formatCellContent() {
+          const cells = document.querySelectorAll('td');
+          cells.forEach(cell => {
+            if (!cell.hasAttribute('contenteditable')) return;
+      
+            const content = cell.innerText;
+            const formatted = content
+              .replace(/ \[/g, '<br>[') // Add <br> before each opening square bracket with a space
+              .replace(/\n/g, '<br>');  // Replace manual line breaks with <br>
+      
+            cell.innerHTML = formatted;
+          });
+        }
+      
+        // Run when the page loads
+        window.addEventListener('DOMContentLoaded', formatCellContent);
+      </script>
+      
+
+      <script>
+        const editableCells = document.querySelectorAll('td[contenteditable="true"]');
+        const now = Date.now();
+        const oneWeek = 7 * 24 * 60 * 60 * 1000;
+        let editMode = false;
+      
+        const originalContent = Array.from(editableCells).map(cell => cell.innerText.trim());
+      
+        const editBtn = document.getElementById('edit-btn');
+        const lockBtn = document.getElementById('lock-btn');
+        const logDiv = document.getElementById('extra-class-log');
+      
+        const dayHeaders = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const timeSlots = [
+          "9:00 - 10:00 AM",
+          "10:00 - 11:00 AM",
+          "11:00 - 1:00 PM",
+          "1:00 - 2:00 PM",
+          "2:00 - 3:00 PM",
+          "3:00 - 4:00 PM",
+          "4:00 - 5:00 PM"
+        ];
+      
+        // Restore on page load
+        window.addEventListener('load', () => {
+  const today = new Date().getDay(); // 0 (Sun) to 6 (Sat)
+
+  editableCells.forEach((cell, index) => {
+    const savedContent = localStorage.getItem('editable-' + index);
+    const savedDay = localStorage.getItem('editable-day-' + index); // stored weekday
+
+        if (savedContent && savedDay) {
+  const cellDay = parseInt(savedDay, 10);
+  if ((originalContent[index] === '' || originalContent[index] === '-') && (today === 0 || today <= cellDay)) {
+    cell.innerText = savedContent;
+    cell.classList.add('updated-cell');  // 🔧 CHANGE: mark restored cell in red
+  } else {
+    cell.innerText = '';
+    localStorage.removeItem('editable-' + index);
+    localStorage.removeItem('editable-day-' + index);
+    cell.classList.remove('updated-cell');
+  }
+}
+
+    cell.contentEditable = false;
+  });
+});
+
+      
+        // Password unlock
+        editBtn.addEventListener('click', () => {
+          if (!editMode) {
+            const password = prompt('Enter faculty password:');
+            if (password === 'faculty123') {
+              editableCells.forEach(cell => {
+                cell.contentEditable = true;
+                cell.style.backgroundColor = '#fff8dc';
+              });
+              editMode = true;
+              lockBtn.style.display = 'inline-block';
+              alert('Edit mode ON. You can now modify the timetable.');
+            } else {
+              alert('Incorrect password.');
+            }
+          }
+        });
+      
+        // 🔧 CHANGE: Updated locking logic with .updated-cell class for changed content
+lockBtn.addEventListener('click', () => {
+  editableCells.forEach(cell => {
+    cell.contentEditable = false;
+    cell.style.backgroundColor = ''; // reset default background
+  });
+
+  editMode = false;
+  lockBtn.style.display = 'none';
+  alert('Edits confirmed and locked.');
+
+  editableCells.forEach((cell, index) => {
+    const value = cell.innerText.trim();
+    const original = originalContent[index];
+
+    // Clean old storage if blanked out
+    if (value === '') {
+      localStorage.removeItem('editable-' + index);
+      localStorage.removeItem('editable-day-' + index);
+      cell.classList.remove('updated-cell');
+    }
+
+    // Only save changes in originally blank slots
+    if ((original === '' || original === '-') && value !== '') {
+      localStorage.setItem('editable-' + index, value);
+
+      // Highlight the updated cell in red
+      cell.classList.add('updated-cell');
+
+      // Store weekday index (1 = Monday, ..., 6 = Saturday)
+      const dayName = cell.parentElement.children[0].innerText;
+      const dayIndex = dayHeaders.indexOf(dayName) + 1;
+      localStorage.setItem('editable-day-' + index, dayIndex);
+    }
+  });
+});
+
+
+      </script>
+      
+    
+</body>
+</html>
